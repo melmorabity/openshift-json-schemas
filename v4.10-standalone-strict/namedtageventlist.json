@@ -1,0 +1,117 @@
+{
+  "description": "NamedTagEventList relates a tag to its image history.",
+  "type": "object",
+  "required": [
+    "tag",
+    "items"
+  ],
+  "properties": {
+    "conditions": {
+      "description": "Conditions is an array of conditions that apply to the tag event list.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "TagEventCondition contains condition information for a tag event.",
+        "type": [
+          "object",
+          "null"
+        ],
+        "required": [
+          "type",
+          "status",
+          "generation"
+        ],
+        "properties": {
+          "generation": {
+            "description": "Generation is the spec tag generation that this status corresponds to",
+            "type": "integer",
+            "format": "int64"
+          },
+          "lastTransitionTime": {
+            "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "message": {
+            "description": "Message is a human readable description of the details about last transition, complementing reason.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason": {
+            "description": "Reason is a brief machine readable explanation for the condition's last transition.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "description": "Status of the condition, one of True, False, Unknown.",
+            "type": "string"
+          },
+          "type": {
+            "description": "Type of tag event condition, currently only ImportSuccess",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "items": {
+      "description": "Standard object's metadata.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "TagEvent is used by ImageStreamStatus to keep a historical record of images associated with a tag.",
+        "type": [
+          "object",
+          "null"
+        ],
+        "required": [
+          "created",
+          "dockerImageReference",
+          "image",
+          "generation"
+        ],
+        "properties": {
+          "created": {
+            "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "dockerImageReference": {
+            "description": "DockerImageReference is the string that can be used to pull this image",
+            "type": "string"
+          },
+          "generation": {
+            "description": "Generation is the spec tag generation that resulted in this tag being updated",
+            "type": "integer",
+            "format": "int64"
+          },
+          "image": {
+            "description": "Image is the image",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "tag": {
+      "description": "Tag is the tag for which the history is recorded",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

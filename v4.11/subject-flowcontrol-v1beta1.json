@@ -1,0 +1,39 @@
+{
+  "description": "Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.",
+  "type": "object",
+  "required": [
+    "kind"
+  ],
+  "properties": {
+    "group": {
+      "description": "`group` matches based on user group name.",
+      "$ref": "https://raw.githubusercontent.com/melmorabity/openshift-json-schemas/main/v4.11/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta1.GroupSubject"
+    },
+    "kind": {
+      "description": "`kind` indicates which one of the other fields is non-empty. Required",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "serviceAccount": {
+      "description": "`serviceAccount` matches ServiceAccounts.",
+      "$ref": "https://raw.githubusercontent.com/melmorabity/openshift-json-schemas/main/v4.11/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta1.ServiceAccountSubject"
+    },
+    "user": {
+      "description": "`user` matches based on username.",
+      "$ref": "https://raw.githubusercontent.com/melmorabity/openshift-json-schemas/main/v4.11/_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta1.UserSubject"
+    }
+  },
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "kind",
+      "fields-to-discriminateBy": {
+        "group": "Group",
+        "serviceAccount": "ServiceAccount",
+        "user": "User"
+      }
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#"
+}

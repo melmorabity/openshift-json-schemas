@@ -1,0 +1,305 @@
+{
+  "description": "BuildStatus contains the status of a build",
+  "type": "object",
+  "required": [
+    "phase"
+  ],
+  "properties": {
+    "cancelled": {
+      "description": "cancelled describes if a cancel event was triggered for the build.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "completionTimestamp": {
+      "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "conditions": {
+      "description": "Conditions represents the latest available observations of a build's current state.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "BuildCondition describes the state of a build at a certain point.",
+        "type": [
+          "object",
+          "null"
+        ],
+        "required": [
+          "type",
+          "status"
+        ],
+        "properties": {
+          "lastTransitionTime": {
+            "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "lastUpdateTime": {
+            "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "message": {
+            "description": "A human readable message indicating details about the transition.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason": {
+            "description": "The reason for the condition's last transition.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "description": "Status of the condition, one of True, False, Unknown.",
+            "type": "string"
+          },
+          "type": {
+            "description": "Type of build condition.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "config": {
+      "description": "ObjectReference contains enough information to let you inspect or modify the referred object.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "apiVersion": {
+          "description": "API version of the referent.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fieldPath": {
+          "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "namespace": {
+          "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resourceVersion": {
+          "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "uid": {
+          "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "x-kubernetes-map-type": "atomic",
+      "additionalProperties": false
+    },
+    "duration": {
+      "description": "duration contains time.Duration object describing build time.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "int64"
+    },
+    "logSnippet": {
+      "description": "logSnippet is the last few lines of the build log.  This value is only set for builds that failed.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "message": {
+      "description": "message is a human-readable message indicating details about why the build has this status.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "output": {
+      "description": "BuildStatusOutput contains the status of the built image.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "to": {
+          "description": "BuildStatusOutputTo describes the status of the built image with regards to image registry to which it was supposed to be pushed.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "imageDigest": {
+              "description": "imageDigest is the digest of the built container image. The digest uniquely identifies the image in the registry to which it was pushed.\n\nPlease note that this field may not always be set even if the push completes successfully - e.g. when the registry returns no digest or returns it in a format that the builder doesn't understand.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputDockerImageReference": {
+      "description": "outputDockerImageReference contains a reference to the container image that will be built by this build. Its value is computed from Build.Spec.Output.To, and should include the registry address, so that it can be used to push and pull the image.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "phase": {
+      "description": "phase is the point in the build lifecycle. Possible values are \"New\", \"Pending\", \"Running\", \"Complete\", \"Failed\", \"Error\", and \"Cancelled\".",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reason": {
+      "description": "reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stages": {
+      "description": "stages contains details about each stage that occurs during the build including start time, duration (in milliseconds), and the steps that occured within each stage.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "StageInfo contains details about a build stage.",
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "durationMilliseconds": {
+            "description": "durationMilliseconds identifies how long the stage took to complete in milliseconds. Note: the duration of a stage can exceed the sum of the duration of the steps within the stage as not all actions are accounted for in explicit build steps.",
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int64"
+          },
+          "name": {
+            "description": "name is a unique identifier for each build stage that occurs.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "startTime": {
+            "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "steps": {
+            "description": "steps contains details about each step that occurs during a build stage including start time and duration in milliseconds.",
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "description": "StepInfo contains details about a build step.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "durationMilliseconds": {
+                  "description": "durationMilliseconds identifies how long the step took to complete in milliseconds.",
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "format": "int64"
+                },
+                "name": {
+                  "description": "name is a unique identifier for each build step.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "startTime": {
+                  "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "startTimestamp": {
+      "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

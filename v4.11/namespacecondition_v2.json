@@ -1,0 +1,47 @@
+{
+  "description": "NamespaceCondition contains details about state of namespace.",
+  "type": "object",
+  "required": [
+    "type",
+    "status"
+  ],
+  "properties": {
+    "lastTransitionTime": {
+      "$ref": "https://raw.githubusercontent.com/melmorabity/openshift-json-schemas/main/v4.11/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
+    },
+    "message": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "description": "Status of the condition, one of True, False, Unknown.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "type": {
+      "description": "Type of namespace controller condition.\n\nPossible enum values:\n - `\"NamespaceContentRemaining\"` contains information about resources remaining in a namespace.\n - `\"NamespaceDeletionContentFailure\"` contains information about namespace deleter errors during deletion of resources.\n - `\"NamespaceDeletionDiscoveryFailure\"` contains information about namespace deleter errors during resource discovery.\n - `\"NamespaceDeletionGroupVersionParsingFailure\"` contains information about namespace deleter errors parsing GV for legacy types.\n - `\"NamespaceFinalizersRemaining\"` contains information about which finalizers are on resources remaining in a namespace.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "NamespaceContentRemaining",
+        "NamespaceDeletionContentFailure",
+        "NamespaceDeletionDiscoveryFailure",
+        "NamespaceDeletionGroupVersionParsingFailure",
+        "NamespaceFinalizersRemaining"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -1,0 +1,31 @@
+{
+  "description": "StepInfo contains details about a build step.",
+  "type": "object",
+  "properties": {
+    "durationMilliseconds": {
+      "description": "durationMilliseconds identifies how long the step took to complete in milliseconds.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "int64"
+    },
+    "name": {
+      "description": "name is a unique identifier for each build step.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "startTime": {
+      "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
