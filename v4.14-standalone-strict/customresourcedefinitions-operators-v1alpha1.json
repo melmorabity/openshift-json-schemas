@@ -1,0 +1,470 @@
+{
+  "description": "CustomResourceDefinitions declares all of the CRDs managed or required by an operator being ran by ClusterServiceVersion.\n\nIf the CRD is present in the Owned list, it is implicitly required.",
+  "type": "object",
+  "properties": {
+    "owned": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "CRDDescription provides details to OLM about the CRDs",
+        "type": "object",
+        "required": [
+          "name",
+          "version",
+          "kind"
+        ],
+        "properties": {
+          "actionDescriptors": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "description": "ActionDescriptor describes a declarative action that can be performed on a custom resource instance",
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "path"
+              ],
+              "properties": {
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "displayName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "path": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "byte"
+                },
+                "x-descriptors": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "displayName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "kind": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "resources": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "description": "APIResourceReference is a reference to a Kubernetes resource type that the referrer utilizes.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "name",
+                "kind",
+                "version"
+              ],
+              "properties": {
+                "kind": {
+                  "description": "Kind of the referenced resource type.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Plural name of the referenced resource type (CustomResourceDefinition.Spec.Names[].Plural). Empty string if the referenced resource type is not a custom resource.",
+                  "type": "string"
+                },
+                "version": {
+                  "description": "API Version of the referenced resource type.",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "specDescriptors": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "description": "SpecDescriptor describes a field in a spec block of a CRD so that OLM can consume it",
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "path"
+              ],
+              "properties": {
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "displayName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "path": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "byte"
+                },
+                "x-descriptors": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "statusDescriptors": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "description": "StatusDescriptor describes a field in a status block of a CRD so that OLM can consume it",
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "path"
+              ],
+              "properties": {
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "displayName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "path": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "byte"
+                },
+                "x-descriptors": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "description": "CRDDescription provides details to OLM about the CRDs",
+        "type": "object",
+        "required": [
+          "name",
+          "version",
+          "kind"
+        ],
+        "properties": {
+          "actionDescriptors": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "description": "ActionDescriptor describes a declarative action that can be performed on a custom resource instance",
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "path"
+              ],
+              "properties": {
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "displayName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "path": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "byte"
+                },
+                "x-descriptors": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "displayName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "kind": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "resources": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "description": "APIResourceReference is a reference to a Kubernetes resource type that the referrer utilizes.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "name",
+                "kind",
+                "version"
+              ],
+              "properties": {
+                "kind": {
+                  "description": "Kind of the referenced resource type.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Plural name of the referenced resource type (CustomResourceDefinition.Spec.Names[].Plural). Empty string if the referenced resource type is not a custom resource.",
+                  "type": "string"
+                },
+                "version": {
+                  "description": "API Version of the referenced resource type.",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "specDescriptors": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "description": "SpecDescriptor describes a field in a spec block of a CRD so that OLM can consume it",
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "path"
+              ],
+              "properties": {
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "displayName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "path": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "byte"
+                },
+                "x-descriptors": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "statusDescriptors": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "description": "StatusDescriptor describes a field in a status block of a CRD so that OLM can consume it",
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "path"
+              ],
+              "properties": {
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "displayName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "path": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "byte"
+                },
+                "x-descriptors": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

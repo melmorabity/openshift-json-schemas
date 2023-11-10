@@ -1,0 +1,108 @@
+{
+  "description": "Metal3Remediation is the Schema for the metal3remediations API.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "infrastructure.cluster.x-k8s.io/v1beta1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "Metal3Remediation"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "https://raw.githubusercontent.com/melmorabity/openshift-json-schemas/main/v4.14/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "Metal3RemediationSpec defines the desired state of Metal3Remediation.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "strategy": {
+          "description": "Strategy field defines remediation strategy.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "retryLimit": {
+              "description": "Sets maximum number of remediation retries.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "timeout": {
+              "description": "Sets the timeout between remediation retries.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": {
+              "description": "Type of remediation.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "description": "Metal3RemediationStatus defines the observed state of Metal3Remediation.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "lastRemediated": {
+          "description": "LastRemediated identifies when the host was last remediated",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "phase": {
+          "description": "Phase represents the current phase of machine remediation. E.g. Pending, Running, Done etc.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "retryCount": {
+          "description": "RetryCount can be used as a counter during the remediation. Field can hold number of reboots etc.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "infrastructure.cluster.x-k8s.io",
+      "kind": "Metal3Remediation",
+      "version": "v1beta1"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#"
+}
