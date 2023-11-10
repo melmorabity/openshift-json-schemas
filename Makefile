@@ -22,7 +22,7 @@ all: build_schemas
 
 $(VENV_DIR)/bin/python:
 	python3 -m venv $(VENV_DIR)
-	. $(VENV_DIR)/bin/activate && pip install openapi2jsonschema
+	. $(VENV_DIR)/bin/activate && pip install openapi2jsonschema wheel
 
 venv: $(VENV_DIR)/bin/python
 
